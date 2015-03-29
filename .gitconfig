@@ -1,0 +1,16 @@
+[core]
+	editor = vim
+
+[alias] 
+        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative 
+[help] 
+        autocorrect = 1 
+[branch]
+        autosetupmerge = true
+        autosetuprebase = always
+[push]
+        default = current 
+[rerere] 
+        enabled = 1 
+[merge]
+        ff = only
