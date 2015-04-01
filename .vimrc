@@ -69,6 +69,17 @@ au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim :%s/\s\+$//e
 " associate *.foo with php filetype
 au BufRead,BufNewFile *.slim setfiletype slim
 
+"Use TAB to complete when typing words, else inserts TABs as usual.
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+:set dictionary="/usr/dict/words"
+
 " Map key to open NERDTree
 nmap <c-t> :NERDTreeToggle<enter>
 nmap <c-h> <c-w>h
