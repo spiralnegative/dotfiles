@@ -9,6 +9,8 @@ filetype plugin on
 filetype indent on
 set background=dark
 set number
+set kp=ri sw=2 ts=2 expandtab
+autocmd Filetype slim set syntax=slim
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -64,6 +66,9 @@ hi StatusLineNC ctermfg=white ctermbg=black cterm=NONE
 " Remove trailing whitespace on save for ruby,sass,haml,coffeescript files.
 au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim :%s/\s\+$//e
 
+" associate *.foo with php filetype
+au BufRead,BufNewFile *.slim setfiletype slim
+
 " Map key to open NERDTree
 nmap <c-t> :NERDTreeToggle<enter>
 nmap <c-h> <c-w>h
@@ -75,11 +80,12 @@ nmap <c-l> <c-w>l
 set noswapfile
 set nobackup
 
-if has("autocmd")
-  augroup ruby
-    au BufReadPre,FileReadPre set kp=ri sw=2 ts=2 expandtab
-  augroup END
-endif
+"if has("autocmd")
+"  augroup ruby
+"    au BufReadPre,FileReadPre set kp=ri sw=2 ts=2 expandtab
+"  augroup END
+"endif
+
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -94,8 +100,8 @@ Plugin 'scrooloose/nerdtree'
 " Comment
 Plugin 'vim-scripts/toggle_comment'
 
-" Slim syntax
-Plugin 'slim-template/vim-slim'
+" Slim lang
+Bundle 'slim-template/vim-slim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
