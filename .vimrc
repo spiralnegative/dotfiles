@@ -54,7 +54,8 @@ set relativenumber
 set laststatus=2
 
 " Colors
-colorscheme slate
+colorscheme wolfpack
+set t_Co=256
 
 " Show trailing whitespace:
 set listchars=tab:»·,trail:·
@@ -96,7 +97,6 @@ set nobackup
 "    au BufReadPre,FileReadPre set kp=ri sw=2 ts=2 expandtab
 "  augroup END
 "endif
-
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
