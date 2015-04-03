@@ -67,7 +67,7 @@ hi StatusLineNC ctermfg=white ctermbg=black cterm=NONE
 " Remove trailing whitespace on save for ruby,sass,haml,coffeescript files.
 au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim :%s/\s\+$//e
 
-" associate *.foo with php filetype
+" associate *.slim with slim filetype
 au BufRead,BufNewFile *.slim setfiletype slim
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
