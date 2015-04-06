@@ -67,8 +67,9 @@ hi StatusLineNC ctermfg=white ctermbg=black cterm=NONE
 " Remove trailing whitespace on save for ruby,sass,haml,coffeescript files.
 au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim :%s/\s\+$//e
 
-" associate *.slim with slim filetype
+" associate filetypes
 au BufRead,BufNewFile *.slim setfiletype slim
+au BufRead,BufNewFile *.coffee setfiletype coffee
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
 function! Tab_Or_Complete()
@@ -111,8 +112,11 @@ Plugin 'scrooloose/nerdtree'
 " Comment
 Plugin 'vim-scripts/toggle_comment'
 
-" Slim lang
-Bundle 'slim-template/vim-slim'
+" Slim
+Plugin 'slim-template/vim-slim'
+
+" Coffeescript
+Plugin 'kchmck/vim-coffee-script'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
