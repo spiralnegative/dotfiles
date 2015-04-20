@@ -2,7 +2,8 @@
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
 
-let mapleader = " "
+" Leader
+let mapleader = ","
 
 syntax on
 filetype plugin on
@@ -88,6 +89,12 @@ nmap <c-h> <c-w>h
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
 nmap <c-l> <c-w>l
+
+" Paste / Nopaste
+map <Leader>p :set paste<CR>"+]p:set nopaste<CR>
+
+" Copy to clipboard
+map <Leader>y "+y<CR>
 
 " No swapfile
 set noswapfile
