@@ -119,6 +119,9 @@ Plugin 'scrooloose/nerdtree'
 " Comment
 Plugin 'vim-scripts/toggle_comment'
 
+" Auto-completion for quotes, parens, brackets, etc. in insert mode.
+Plugin 'Raimondi/delimitMate'
+
 " Add 'end' in Ruby
 Plugin 'tpope/vim-endwise'
 
