@@ -119,6 +119,9 @@ Plugin 'scrooloose/nerdtree'
 " Comment
 Plugin 'vim-scripts/toggle_comment'
 
+" Add 'end' in Ruby
+Plugin 'tpope/vim-endwise'
+
 " Slim
 Plugin 'slim-template/vim-slim'
 
