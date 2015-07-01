@@ -106,6 +106,9 @@ map <Leader>p :set paste<CR>"+]p:set nopaste<CR>
 " Copy to clipboard
 map <Leader>y "+y<CR>
 
+" Reload files
+map <F7> :checktime<CR>
+
 " No swapfile
 set noswapfile
 set nobackup
