@@ -12,6 +12,7 @@ set background=dark
 set number
 set kp=ri sw=2 ts=2 expandtab
 autocmd Filetype slim set syntax=slim
+autocmd BufWrite *.rb :RuboCop -a
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -143,6 +144,9 @@ Plugin 'slim-template/vim-slim'
 
 " Coffeescript
 Plugin 'kchmck/vim-coffee-script'
+
+" Ruby code analyzer
+Plugin 'ngmy/vim-rubocop'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
