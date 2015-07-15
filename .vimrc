@@ -12,7 +12,7 @@ set background=dark
 set number
 set kp=ri sw=2 ts=2 expandtab
 autocmd Filetype slim set syntax=slim
-autocmd BufWrite *.rb :RuboCop -a
+" autocmd BufWrite *.rb :RuboCop -a
 
 " Jump to the last position when reopening a file
 if has("autocmd")
