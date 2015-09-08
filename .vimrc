@@ -12,7 +12,6 @@ set background=dark
 set number
 set kp=ri sw=2 ts=2 expandtab
 autocmd Filetype slim set syntax=slim
-" autocmd BufWrite *.rb :RuboCop -a
 
 " Jump to the last position when reopening a file
 if has("autocmd")
@@ -66,8 +65,8 @@ hi SpecialKey ctermbg=red ctermfg=red guibg=red guifg=red
 hi StatusLine ctermfg=white ctermbg=black cterm=bold
 hi StatusLineNC ctermfg=white ctermbg=black cterm=NONE
 
-" Remove trailing whitespace on save for ruby,sass,haml,coffeescript files.
-au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim :%s/\s\+$//e
+" Remove trailing whitespace on save for the following filetypes:
+au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim,*.html :%s/\s\+$//e
 
 " associate filetypes
 au BufRead,BufNewFile *.slim setfiletype slim
