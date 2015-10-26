@@ -5,6 +5,9 @@ runtime! debian.vim
 " Leader
 let mapleader = ","
 
+" Needed for Airline status/tabline font
+let g:airline_powerline_fonts = 1
+
 syntax on
 filetype plugin on
 filetype indent on
@@ -31,19 +34,19 @@ au BufWritePost .vimrc so $MYVIMRC
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
-set showcmd		" Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
-set hidden		" Hide buffers when they are abandoned
-set mouse=a		" Enable mouse usage (all modes)
+set showcmd    " Show (partial) command in status line.
+set showmatch  " Show matching brackets.
+set smartcase  " Do smart case matching
+set incsearch  " Incremental search
+set autowrite  " Automatically save before commands like :next and :make
+set hidden     " Hide buffers when they are abandoned
+set mouse=a    " Enable mouse usage (all modes)
 
 " Command-line completion menu
 set wildmenu
 set wildmode=list:longest,full
 
-" Open vsplits and splits 
+" Open vsplits and splits
 set splitright
 set splitbelow
 
@@ -136,6 +139,9 @@ Plugin 'kchmck/vim-coffee-script'
 
 " Ruby code analyzer
 Plugin 'ngmy/vim-rubocop'
+
+" Status/tabline
+Plugin 'bling/vim-airline'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
