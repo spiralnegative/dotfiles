@@ -7,6 +7,9 @@ let mapleader = ","
 
 " Needed for Airline status/tabline font
 let g:airline_powerline_fonts = 1
+let g:airline_theme='tomorrow'
+let g:airline#extensions#tabline#enabled = 1
+set timeoutlen=50
 
 syntax on
 filetype plugin on
