@@ -9,6 +9,7 @@ let mapleader = ","
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
 set timeoutlen=50
 
 syntax on
