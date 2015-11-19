@@ -147,5 +147,8 @@ Plugin 'ngmy/vim-rubocop'
 " Status/tabline
 Plugin 'bling/vim-airline'
 
+" Show git diff
+Plugin 'airblade/vim-gitgutter'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
