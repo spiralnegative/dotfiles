@@ -1,10 +1,6 @@
 [core]
   editor = vim
 
-[user]
-  email = monica.dimitrova@conit-bg.com
-  name = Monica Dimitrova
-
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
   st = status
@@ -14,6 +10,7 @@
   df = diff
   a = add
   ck = checkout
+  hide = update-index --assume-unchanged
 
 [help]
   autocorrect = 1
