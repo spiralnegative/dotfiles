@@ -8,8 +8,6 @@ let mapleader = ","
 " Needed for Airline status/tabline font
 let g:airline_powerline_fonts = 1
 let g:airline_theme='tomorrow'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
 set timeoutlen=50
 
 syntax on
@@ -110,6 +108,10 @@ map <F7> :checktime<CR>
 set noswapfile
 set nobackup
 
+" Tabline
+:hi TabLineSel ctermfg=0 ctermbg=158 cterm=none
+:hi TabLine ctermbg=237
+
 "if has("autocmd")
 "  augroup ruby
 "    au BufReadPre,FileReadPre set kp=ri sw=2 ts=2 expandtab
@@ -152,6 +154,9 @@ Plugin 'airblade/vim-gitgutter'
 
 " Full path fuzzy search
 Plugin 'ctrlpvim/ctrlp.vim'
+
+" Full path fuzzy search
+Plugin 'mkitt/tabline.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
