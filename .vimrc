@@ -15,7 +15,12 @@ filetype plugin on
 filetype indent on
 set background=dark
 set number
+
+" by default, the indent is 2 spaces
 set kp=ri sw=2 ts=2 expandtab
+" for Python files, 4 spaces
+autocmd Filetype python setlocal ts=4 sw=4 expandtab
+
 autocmd Filetype slim set syntax=slim
 
 " Jump to the last position when reopening a file
