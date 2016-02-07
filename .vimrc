@@ -94,7 +94,7 @@ endfunction
 :set dictionary="/usr/dict/words"
 
 " Map key to open NERDTree
-nmap <c-t> :NERDTreeToggle<enter>
+nmap <c-t> :NERDTreeTabsToggle<enter>
 nmap <c-h> <c-w>h
 nmap <c-j> <c-w>j
 nmap <c-k> <c-w>k
@@ -132,6 +132,7 @@ Plugin 'gmarik/vundle'
 
 " NERDTree
 Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
 
 " Comment
 Plugin 'vim-scripts/toggle_comment'
