@@ -11,6 +11,7 @@
   a = add
   ck = checkout
   hide = update-index --assume-unchanged
+  skip = update-index --skip-worktree
 
 [help]
   autocorrect = 1
