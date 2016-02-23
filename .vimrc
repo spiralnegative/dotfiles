@@ -19,7 +19,7 @@ set number
 " by default, the indent is 2 spaces
 set kp=ri sw=2 ts=2 expandtab
 " for Python files, 4 spaces
-autocmd Filetype python setlocal ts=4 sw=4 expandtab
+autocmd Filetype python set ts=4 expandtab
 
 autocmd Filetype slim set syntax=slim
 
@@ -163,6 +163,10 @@ Plugin 'ctrlpvim/ctrlp.vim'
 
 " Full path fuzzy search
 Plugin 'mkitt/tabline.vim'
+
+" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
