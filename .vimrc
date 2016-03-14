@@ -169,5 +169,8 @@ Plugin 'mkitt/tabline.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
+" Defaulth theme
+Plugin 'carlson-erik/wolfpack'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
