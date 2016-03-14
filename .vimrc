@@ -153,7 +153,8 @@ Plugin 'kchmck/vim-coffee-script'
 Plugin 'ngmy/vim-rubocop'
 
 " Status/tabline
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 " Show git diff
 Plugin 'airblade/vim-gitgutter'
