@@ -7,7 +7,7 @@ let mapleader = ","
 
 " Needed for Airline status/tabline font
 let g:airline_powerline_fonts = 1
-let g:airline_theme='tomorrow'
+let g:airline_theme='hybridline'
 set timeoutlen=50
 
 syntax on
@@ -178,6 +178,9 @@ Plugin 'edkolev/tmuxline.vim'
 
 " Highlight colours
 Plugin 'ap/vim-css-color'
+
+" Git wrapper
+Plugin 'tpope/vim-fugitive'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
