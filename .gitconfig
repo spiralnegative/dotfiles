@@ -12,6 +12,7 @@
   ck = checkout
   hide = update-index --assume-unchanged
   skip = update-index --skip-worktree
+  ri = "!sh -c \"git rebase -i HEAD~$1\" -"
 
 [help]
   autocorrect = 1
