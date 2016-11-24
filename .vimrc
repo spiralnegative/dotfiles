@@ -118,6 +118,9 @@ set nobackup
 :hi TabLineSel ctermfg=0 ctermbg=158 cterm=none
 :hi TabLine ctermbg=237
 
+" Ctrlp
+let g:ctrlp_max_files = 0
+
 "if has("autocmd")
 "  augroup ruby
 "    au BufReadPre,FileReadPre set kp=ri sw=2 ts=2 expandtab
