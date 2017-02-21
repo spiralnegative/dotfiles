@@ -185,5 +185,8 @@ Plugin 'ap/vim-css-color'
 " Git wrapper
 Plugin 'tpope/vim-fugitive'
 
+" Integrate Grep search tools
+Plugin 'yegappan/grep'
+
 " All of your Plugins must be added before the following line
 call vundle#end()
