@@ -1,17 +1,73 @@
+syntax on
+filetype plugin on
+let mapleader = ","
+
+" Specify a directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" NERDTree
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+
+" Comment
+Plug 'vim-scripts/toggle_comment'
+
+" Auto-completion for quotes, parens, brackets, etc. in insert mode.
+Plug 'Raimondi/delimitMate'
+
+" Add 'end' in Ruby
+Plug 'tpope/vim-endwise'
+
+" Slim
+Plug 'slim-template/vim-slim'
+
+" Coffeescript
+Plug 'kchmck/vim-coffee-script'
+
+" Ruby code analyzer
+Plug 'ngmy/vim-rubocop'
+
+" Status/tabline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+" Show git diff
+Plug 'airblade/vim-gitgutter'
+
+" Command-line fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'https://github.com/junegunn/fzf.vim.git'
+
+" Full path fuzzy search
+Plug 'mkitt/tabline.vim'
+
+" Markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+
+" Defaulth theme
+Plug 'carlson-erik/wolfpack'
+
+" tmux statusline integration
+Plug 'edkolev/tmuxline.vim'
+
+" Highlight colours
+Plug 'ap/vim-css-color'
+
+" Git wrapper
+Plug 'tpope/vim-fugitive'
+
+" Initialize plugin system
+call plug#end()
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages available in Debian.
 runtime! debian.vim
-
-" Leader
-let mapleader = ","
 
 " Needed for Airline status/tabline font
 let g:airline_powerline_fonts = 1
 let g:airline_theme='hybridline'
 set timeoutlen=50
 
-syntax on
-filetype plugin on
 filetype indent on
 set background=dark
 set number
@@ -37,7 +93,6 @@ set exrc
 
 " automatically load the .vimrc file whenever it is saved
 au BufWritePost .vimrc so $MYVIMRC
-
 
 " The following are commented out as they cause vim to behave a lot
 " differently from regular Vi. They are highly recommended though.
@@ -117,76 +172,3 @@ set nobackup
 " Tabline
 :hi TabLineSel ctermfg=0 ctermbg=158 cterm=none
 :hi TabLine ctermbg=237
-
-" Ctrlp
-let g:ctrlp_max_files = 0
-
-"if has("autocmd")
-"  augroup ruby
-"    au BufReadPre,FileReadPre set kp=ri sw=2 ts=2 expandtab
-"  augroup END
-"endif
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/vundle'
-
-" NERDTree
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-
-" Comment
-Plugin 'vim-scripts/toggle_comment'
-
-" Auto-completion for quotes, parens, brackets, etc. in insert mode.
-Plugin 'Raimondi/delimitMate'
-
-" Add 'end' in Ruby
-Plugin 'tpope/vim-endwise'
-
-" Slim
-Plugin 'slim-template/vim-slim'
-
-" Coffeescript
-Plugin 'kchmck/vim-coffee-script'
-
-" Ruby code analyzer
-Plugin 'ngmy/vim-rubocop'
-
-" Status/tabline
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-" Show git diff
-Plugin 'airblade/vim-gitgutter'
-
-" Full path fuzzy search
-Plugin 'ctrlpvim/ctrlp.vim'
-
-" Full path fuzzy search
-Plugin 'mkitt/tabline.vim'
-
-" Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-
-" Defaulth theme
-Plugin 'carlson-erik/wolfpack'
-
-" tmux statusline integration
-Plugin 'edkolev/tmuxline.vim'
-
-" Highlight colours
-Plugin 'ap/vim-css-color'
-
-" Git wrapper
-Plugin 'tpope/vim-fugitive'
-
-" Integrate Grep search tools
-Plugin 'yegappan/grep'
-
-" All of your Plugins must be added before the following line
-call vundle#end()
