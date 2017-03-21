@@ -172,3 +172,16 @@ set nobackup
 " Tabline
 :hi TabLineSel ctermfg=0 ctermbg=158 cterm=none
 :hi TabLine ctermbg=237
+
+" FZF settings
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+command! ProjectFiles execute 'Files' s:find_git_root()
+
+set rtp+=~/.fzf
+
+let g:fzf_layout = { 'down': '~30%' }
+nnoremap <silent> <C-p> :ProjectFiles<CR>
+nnoremap <F3> :Buffers<CR>
