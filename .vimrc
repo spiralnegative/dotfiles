@@ -43,7 +43,7 @@ Plug 'mkitt/tabline.vim'
 
 " Markdown
 Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
+Plug 'tpope/vim-markdown'
 
 " Defaulth theme
 Plug 'carlson-erik/wolfpack'
