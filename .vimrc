@@ -17,6 +17,7 @@ Plug 'Raimondi/delimitMate'
 
 " Add 'end' in Ruby
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rails'
 
 " Slim
 Plug 'slim-template/vim-slim'
@@ -111,6 +112,9 @@ set mouse=a    " Enable mouse usage (all modes)
 " Command-line completion menu
 set wildmenu
 set wildmode=list:longest,full
+
+" Enable backspace in insert mode
+set backspace=indent,eol,start
 
 " Open vsplits and splits
 set splitright
