@@ -10,8 +10,15 @@
   df = diff
   a = add
   ck = checkout
+
   hide = update-index --assume-unchanged
+  show = update-index --no-assume-unchanged
+  hidden = "!git ls-files -v | grep '^[a-z]'"
+
   skip = update-index --skip-worktree
+  noskip = update-index --no-skip-worktree
+  skipped = "!git ls-files -v | grep ^S"
+
   ri = "!sh -c \"git rebase -i HEAD~$1\" -"
 
 [help]
