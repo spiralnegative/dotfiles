@@ -193,3 +193,12 @@ set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~30%' }
 nnoremap <silent> <C-p> :ProjectFiles<CR>
 nnoremap <F3> :Buffers<CR>
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#grep(
+  \   'ag  --nogroup --column --color --color-line-number "15" --color-match "106" --color-path "1;15" '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+noremap <C-a> :Ag! <C-r>=expand('<cword>')<CR><CR>
