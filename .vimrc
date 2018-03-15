@@ -58,6 +58,9 @@ Plug 'ap/vim-css-color'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
+" See the contents of the registers
+Plug 'https://github.com/junegunn/vim-peekaboo.git'
+
 " Initialize plugin system
 call plug#end()
 " This line should not be removed as it ensures that various options are
