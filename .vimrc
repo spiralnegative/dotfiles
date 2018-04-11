@@ -61,6 +61,9 @@ Plug 'tpope/vim-fugitive'
 " See the contents of the registers
 Plug 'https://github.com/junegunn/vim-peekaboo.git'
 
+" Emoji
+Plug 'junegunn/vim-emoji'
+
 " Initialize plugin system
 call plug#end()
 " This line should not be removed as it ensures that various options are
@@ -95,6 +98,8 @@ endif
 " Automatically load NERDTree if no files were specified
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+" Show hidden files and folders
+let NERDTreeShowHidden=1
 
 " load a relative .vimrc file for the current project
 set exrc
@@ -205,3 +210,7 @@ command! -bang -nargs=* Ag
   \   <bang>0)
 
 noremap <C-a> :Ag! <C-r>=expand('<cword>')<CR><CR>
+
+" Emoji completion
+set completefunc=emoji#complete
+map <C-E> :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
