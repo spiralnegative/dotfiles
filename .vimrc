@@ -78,6 +78,8 @@ set timeoutlen=50
 filetype indent on
 set background=dark
 set number
+scriptencoding utf-8
+set encoding=utf-8
 
 " by default, the indent is 2 spaces
 set kp=ri sw=2 ts=2 expandtab
