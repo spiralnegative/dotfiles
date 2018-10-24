@@ -64,6 +64,9 @@ Plug 'https://github.com/junegunn/vim-peekaboo.git'
 " Emoji
 Plug 'junegunn/vim-emoji'
 
+" Rubocop
+Plug 'w0rp/ale'
+
 " Initialize plugin system
 call plug#end()
 " This line should not be removed as it ensures that various options are
