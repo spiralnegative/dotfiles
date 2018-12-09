@@ -67,6 +67,9 @@ Plug 'junegunn/vim-emoji'
 " Rubocop
 Plug 'w0rp/ale'
 
+" Better diff
+Plug 'chrisbra/vim-diff-enhanced'
+
 " Initialize plugin system
 call plug#end()
 " This line should not be removed as it ensures that various options are
