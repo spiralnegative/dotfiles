@@ -1,5 +1,6 @@
 [core]
   editor = vim
+  pager = diff-so-fancy | less --tabs=4 -RFX
 
 [alias]
   lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
@@ -11,8 +12,8 @@
   a = add
   ck = checkout
 
-  hide = update-index --assume-unchanged
-  show = update-index --no-assume-unchanged
+  hide = "update-index --assume-unchanged"
+  show = "update-index --no-assume-unchanged"
   hidden = "!git ls-files -v | grep '^[a-z]'"
 
   skip = update-index --skip-worktree
@@ -36,3 +37,26 @@
 
 [merge]
   ff = only
+
+[filter "lfs"]
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+
+[color]
+  ui = true
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[color "diff"]
+  meta = yellow
+  frag = magenta bold
+  commit = yellow bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
