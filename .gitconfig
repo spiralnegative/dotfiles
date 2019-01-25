@@ -21,6 +21,7 @@
   skipped = "!git ls-files -v | grep ^S"
 
   ri = "!sh -c \"git rebase -i HEAD~$1\" -"
+  rias = "!sh -c \"git rebase -i --autosquash $1\" -"
 
 [help]
   autocorrect = 1
