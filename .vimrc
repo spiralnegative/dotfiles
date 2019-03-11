@@ -224,3 +224,6 @@ noremap <C-a> :Ag! <C-r>=expand('<cword>')<CR><CR>
 " Emoji completion
 set completefunc=emoji#complete
 map <C-E> :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
+
+" Pretty format for JSON
+au FileType json setlocal equalprg=python\ -m\ json.tool
