@@ -70,6 +70,12 @@ Plug 'w0rp/ale'
 " Better diff
 Plug 'chrisbra/vim-diff-enhanced'
 
+" Clojure REPL support
+Plug 'tpope/vim-fireplace'
+
+" Static Vim support for Leiningen and Boot
+Plug 'tpope/vim-salve'
+
 " Initialize plugin system
 call plug#end()
 " This line should not be removed as it ensures that various options are
