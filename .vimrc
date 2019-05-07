@@ -59,7 +59,7 @@ Plug 'ap/vim-css-color'
 Plug 'tpope/vim-fugitive'
 
 " See the contents of the registers
-Plug 'https://github.com/junegunn/vim-peekaboo.git'
+Plug 'junegunn/vim-peekaboo'
 
 " Emoji
 Plug 'junegunn/vim-emoji'
@@ -155,6 +155,7 @@ set laststatus=2
 colorscheme wolfpack
 let g:cssColorVimDoNotMessMyUpdatetime = 1
 set t_Co=256
+set colorcolumn=80,120
 
 " Show trailing whitespace:
 set listchars=tab:»·,trail:·
@@ -233,3 +234,6 @@ map <C-E> :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 
 " Pretty format for JSON
 au FileType json setlocal equalprg=python\ -m\ json.tool
+
+" Use rubocop-daemon instead of rubocop
+call ale#Set('ruby_rubocop_executable', 'rubocop-daemon-wrapper')
