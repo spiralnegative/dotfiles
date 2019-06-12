@@ -9,7 +9,7 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rvm vcs vi_mode)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9k_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_VCS_STASH_ICON='\u2606 '
+POWERLEVEL9K_VCS_STASH_ICON=$'\u2606 '
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
