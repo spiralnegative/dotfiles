@@ -36,8 +36,9 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'airblade/vim-gitgutter'
 
 " Command-line fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'https://github.com/junegunn/fzf.vim.git'
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Full path fuzzy search
 Plug 'mkitt/tabline.vim'
@@ -76,6 +77,9 @@ Plug 'tpope/vim-fireplace'
 " Static Vim support for Leiningen and Boot
 Plug 'tpope/vim-salve'
 
+" Jenkins
+Plug 'martinda/Jenkinsfile-vim-syntax'
+
 " Initialize plugin system
 call plug#end()
 " This line should not be removed as it ensures that various options are
@@ -95,10 +99,10 @@ set encoding=utf-8
 
 " by default, the indent is 2 spaces
 set kp=ri sw=2 ts=2 expandtab
-" for Python files, 4 spaces
+" identation for specific files
 autocmd Filetype python set ts=4 expandtab
-
 autocmd Filetype slim set syntax=slim
+autocmd FileType jenkinsfile setlocal ts=4 sw=4
 
 " Enable search highlight
 set hlsearch
@@ -170,6 +174,8 @@ au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim,*.html,*.py,*.clj :%s/\s\+$//e
 " associate filetypes
 au BufRead,BufNewFile *.slim setfiletype slim
 au BufRead,BufNewFile *.coffee setfiletype coffee
+au BufRead,BufNewFile Jenkinsfile set filetype=jenkinsfile
+au BufRead,BufNewFile *.jenkinsfile set filetype=jenkinsfile
 
 "Use TAB to complete when typing words, else inserts TABs as usual.
 function! Tab_Or_Complete()
