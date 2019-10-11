@@ -170,6 +170,8 @@ hi StatusLineNC ctermfg=white ctermbg=black cterm=NONE
 
 " Remove trailing whitespace on save for the following filetypes:
 au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim,*.html,*.py,*.clj :%s/\s\+$//e
+" Remove zero width spaces
+au BufWritePre *.* :%s/\%u200b//ge
 
 " associate filetypes
 au BufRead,BufNewFile *.slim setfiletype slim
