@@ -77,8 +77,11 @@ Plug 'tpope/vim-fireplace'
 " Static Vim support for Leiningen and Boot
 Plug 'tpope/vim-salve'
 
-" Jenkins
+" Jenkinsfile syntax highlight
 Plug 'martinda/Jenkinsfile-vim-syntax'
+
+" Jsonnet syntax highlight
+Plug 'google/vim-jsonnet'
 
 " Initialize plugin system
 call plug#end()
