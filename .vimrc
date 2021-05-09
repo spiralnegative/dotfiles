@@ -1,235 +1,94 @@
+" Colours
 syntax on
-filetype plugin on
-let mapleader = ","
-
-" Specify a directory for plugins
-call plug#begin('~/.vim/plugged')
-
-" NERDTree
-Plug 'scrooloose/nerdtree'
-Plug 'jistr/vim-nerdtree-tabs'
-
-" Comment
-Plug 'vim-scripts/toggle_comment'
-
-" Auto-completion for quotes, parens, brackets, etc. in insert mode.
-Plug 'Raimondi/delimitMate'
-
-" Add 'end' in Ruby
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-rails'
-
-" Slim
-Plug 'slim-template/vim-slim'
-
-" Coffeescript
-Plug 'kchmck/vim-coffee-script'
-
-" Ruby code analyzer
-Plug 'ngmy/vim-rubocop'
-
-" Status/tabline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-
-" Show git diff
-Plug 'airblade/vim-gitgutter'
-
-" Command-line fuzzy finder
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
-
-" Full path fuzzy search
-Plug 'mkitt/tabline.vim'
-
-" Markdown
-Plug 'godlygeek/tabular'
-Plug 'tpope/vim-markdown'
-
-" Defaulth theme
-Plug 'carlson-erik/wolfpack'
-
-" tmux statusline integration
-Plug 'edkolev/tmuxline.vim'
-
-" Highlight colours
-Plug 'ap/vim-css-color'
-
-" Git wrapper
-Plug 'tpope/vim-fugitive'
-
-" See the contents of the registers
-Plug 'junegunn/vim-peekaboo'
-
-" Emoji
-Plug 'junegunn/vim-emoji'
-
-" Rubocop
-Plug 'w0rp/ale'
-
-" Better diff
-Plug 'chrisbra/vim-diff-enhanced'
-
-" Clojure REPL support
-Plug 'tpope/vim-fireplace'
-
-" Static Vim support for Leiningen and Boot
-Plug 'tpope/vim-salve'
-
-" Jenkinsfile syntax highlight
-Plug 'martinda/Jenkinsfile-vim-syntax'
-
-" Jsonnet syntax highlight
-Plug 'google/vim-jsonnet'
-
-" Initialize plugin system
-call plug#end()
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-
-" Needed for Airline status/tabline font
-let g:airline_powerline_fonts = 1
-let g:airline_theme='atomic'
-set timeoutlen=50
-
-filetype indent on
-set background=dark
-set number
-scriptencoding utf-8
-set encoding=utf-8
-
-" by default, the indent is 2 spaces
-set kp=ri sw=2 ts=2 expandtab
-" identation for specific files
-autocmd Filetype python set ts=4 expandtab
-autocmd Filetype slim set syntax=slim
-autocmd FileType jenkinsfile setlocal ts=4 sw=4
-
-" Enable search highlight
-set hlsearch
-autocmd ColorScheme * hi Search ctermfg=black ctermbg=gray cterm=bold
-
-" Jump to the last position when reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-" Automatically load NERDTree if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" Jump to the main window
-autocmd VimEnter * wincmd p
-" Show hidden files and folders
-let NERDTreeShowHidden=1
-
-" load a relative .vimrc file for the current project
-set exrc
-
-" automatically load the .vimrc file whenever it is saved
-au BufWritePost .vimrc so $MYVIMRC
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set showcmd    " Show (partial) command in status line.
-set showmatch  " Show matching brackets.
-set smartcase  " Do smart case matching
-set incsearch  " Incremental search
-set autowrite  " Automatically save before commands like :next and :make
-set hidden     " Hide buffers when they are abandoned
-set mouse=a    " Enable mouse usage (all modes)
-
-" Command-line completion menu
-set wildmenu
-set wildmode=list:longest,full
-
-" Enable backspace in insert mode
-set backspace=indent,eol,start
-
-" Open vsplits and splits
-set splitright
-set splitbelow
-
-" Show line numbers
-" :set number
-set relativenumber
-
-" Always show statusline
-set laststatus=2
-
-" Colors
+filetype indent plugin on
 colorscheme wolfpack
-let g:cssColorVimDoNotMessMyUpdatetime = 1
-set t_Co=256
-set colorcolumn=80,120
 
-" Show trailing whitespace:
-set listchars=tab:»·,trail:·
-set list
-hi SpecialKey ctermbg=red ctermfg=red guibg=red guifg=red
-hi StatusLine ctermfg=white ctermbg=black cterm=bold
-hi StatusLineNC ctermfg=white ctermbg=black cterm=NONE
 
-" Remove trailing whitespace on save for the following filetypes:
-au BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim,*.html,*.py,*.clj :%s/\s\+$//e
-" Remove zero width spaces
-au BufWritePre *.* :%s/\%u200b//ge
+" Searching
+set hlsearch " highlight all matches
+set ignorecase " ignore case when searching
+set incsearch " search as characters are entered
+highlight Search ctermfg=black ctermbg=magenta cterm=bold
+highlight SpecialKey ctermbg=red ctermfg=red guibg=red guifg=red
 
-" associate filetypes
-au BufRead,BufNewFile *.slim setfiletype slim
-au BufRead,BufNewFile *.coffee setfiletype coffee
-au BufRead,BufNewFile Jenkinsfile set filetype=jenkinsfile
-au BufRead,BufNewFile *.jenkinsfile set filetype=jenkinsfile
 
-"Use TAB to complete when typing words, else inserts TABs as usual.
-function! Tab_Or_Complete()
-  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
-    return "\<C-N>"
-  else
-    return "\<Tab>"
-  endif
-endfunction
-:inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
-:set dictionary="/usr/dict/words"
+" Usability
+set autowrite " automatically save before commands like :next and :make
+set backspace=indent,eol,start " enable backspace in insert mode
+set cmdheight=2 " set the command window height to 2 lines
+set colorcolumn=80,120 " line lenght markers
+set cursorline " highlight current line
+set dictionary="/usr/dict/words" " completion dictionary
+set hidden " hide buffers when they are abandoned
+set laststatus=2 " always show statusline
+set list " show whitespace characters
+set listchars=tab:»·,trail:· " show trailing whitespace
+set mouse=a " enable mouse usage (all modes)
+set nobackup " no backup files
+set nopaste " use nopaste by default
+set noswapfile " no swap files
+set number " display line numbers on the left
+set pastetoggle=<F3> " toggle between paste and nopaste
+set showcmd " show (partial) command in status line
+set showmatch " show matching brackets
+set smartcase " do smart case matching
+set splitbelow " open splits below
+set splitright " open vertical splits on the right
+set tabstop=2 shiftwidth=2 expandtab " use 2 spaces by default
+set wildmenu " command-line completion menu
+set wildmode=longest:list,full " command-line completion mode
 
-" Map key to open NERDTree
-nmap <c-t> :NERDTreeTabsToggle<enter>
-nmap <c-h> <c-w>h
-nmap <c-j> <c-w>j
-nmap <c-k> <c-w>k
-nmap <c-l> <c-w>l
 
-" Paste / Nopaste
-map <Leader>p :set paste<CR>"+]p:set nopaste<CR>
+" Folding
+set foldmethod=indent " fold based on indent level
+set foldenable " fold files by default
+set foldnestmax=10 " max 10 depth
+set foldlevelstart=10 " start with fold level of 10
+" In normal mode, press Space to toggle the current fold open/closed. However, if the cursor is not in a fold, move to the right
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
 
-" Copy to clipboard
-map <Leader>y "+y<CR>
 
-" Reload files
+" Leader shortcuts
+let mapleader = ','
+vnoremap <Leader>p :set paste<CR>"+]p:set nopaste<CR>
+nnoremap <leader>ev :vsp $MYVIMRC<CR>
+nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>s :mksession!<CR>
+nnoremap <leader>a :Ag 
+vnoremap <leader>y "+y<CR>
+
+
+" Mappings
+inoremap <Tab> <C-R>=TabOrComplete()<CR>
 map <F7> :checktime<CR>
-
-" No swapfile
-set noswapfile
-set nobackup
-
-" Tabline
-:hi TabLineSel ctermfg=0 ctermbg=158 cterm=none
-:hi TabLine ctermbg=237
-
-" FZF settings
-function! s:find_git_root()
-  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
-endfunction
-
-command! ProjectFiles execute 'Files' s:find_git_root()
-
-set rtp+=~/.fzf
-
-let g:fzf_layout = { 'down': '~30%' }
+map <C-E> :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
+noremap <c-t> :NERDTreeTabsToggle<CR>
 nnoremap <silent> <C-p> :ProjectFiles<CR>
 nnoremap <F3> :Buffers<CR>
+noremap <C-a> :Ag! <C-r>=expand('<cword>')<CR><CR>
 
+
+" AutoGroups
+augroup configgroup
+  autocmd BufEnter *.coffee set syntax=coffee
+  autocmd BufEnter *.py setlocal tabstop=4
+  autocmd BufEnter *.slim set syntax=slim
+  autocmd BufReadPost * call JumpToLastPosition()
+  autocmd BufWritePost .vimrc source $MYVIMRC " automatically load the .vimrc file whenever it is saved
+  autocmd BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim,*.html :%s/\s\+$//e " remove trailing whitespace on save
+  autocmd FileType clojure RainbowToggleOn
+  autocmd StdinReadPre * let s:std_in=1 " automatically load NERDTree if no files were specified
+  autocmd VimEnter * call ShowNerdTree()
+  autocmd VimEnter * wincmd p " jump to the main window so NERDTree is not focused by default
+augroup END
+
+
+" fzf
+set rtp+=~/.fzf
+let g:fzf_layout = { 'down': '~30%' }
+
+command! ProjectFiles execute 'Files' s:find_git_root()
 command! -bang -nargs=* Ag
   \ call fzf#vim#grep(
   \   'ag  --nogroup --column --color --color-line-number "15" --color-match "106" --color-path "1;15" '.shellescape(<q-args>), 1,
@@ -237,14 +96,82 @@ command! -bang -nargs=* Ag
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
-noremap <C-a> :Ag! <C-r>=expand('<cword>')<CR><CR>
 
-" Emoji completion
+" nerdtree
+let NERDTreeShowHidden=1
+
+
+" rainbow
+let g:rainbow_active = 1
+
+
+" tabline
+highlight TabLineSel ctermfg=0 ctermbg=158 cterm=none
+highlight TabLine ctermbg=237
+
+
+" vim-airline
+let g:airline_powerline_fonts = 1
+let g:airline_theme='atomic'
+
+
+" vim-emoji
 set completefunc=emoji#complete
-map <C-E> :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 
-" Pretty format for JSON
-au FileType json setlocal equalprg=python\ -m\ json.tool
 
-" Use rubocop-daemon instead of rubocop
-call ale#Set('ruby_rubocop_executable', 'rubocop-daemon-wrapper')
+" vim-gitgutter
+let g:gitgutter_signs = 0
+let g:gitgutter_highlight_lines = 1
+
+
+" Custom Functions
+function! TabOrComplete() " use TAB to complete when typing words, else inserts TABs as usual
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+
+function! JumpToLastPosition() " jump to last position when reopening a file
+  if line("'\"") > 1 && line("'\"") <= line("$")
+    exe "normal! g'\""
+  endif
+endfunction
+
+function! ShowNerdTree() " automatically load NERDTree
+  if argc() == 0 && !exists("s:std_in")
+    NERDTree
+  endif
+endfunction
+
+function! s:find_git_root()
+  return system('git rev-parse --show-toplevel 2> /dev/null')[:-2]
+endfunction
+
+
+" Plugins
+call plug#begin('~/.vim/plugged')
+Plug 'airblade/vim-gitgutter' " Git diff markers
+Plug 'ap/vim-css-color' " Preview colours
+Plug 'carlson-erik/wolfpack' " Colorscheme
+Plug 'edkolev/tmuxline.vim' " Tmux statusline generator
+Plug 'godlygeek/tabular' " Text filtering and alignment
+Plug 'jistr/vim-nerdtree-tabs' " Make NERDTree feel like a true panel, independent of tabs
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Command-line fuzzy finder
+Plug 'junegunn/fzf.vim' " Bundle of fzf-based commands
+Plug 'junegunn/vim-emoji' " Display emoji
+Plug 'junegunn/vim-peekaboo' " Display the contents of the registers
+Plug 'kchmck/vim-coffee-script' " CoffeeScript support
+Plug 'luochen1990/rainbow' " Rainbow parentheses
+Plug 'mkitt/tabline.vim' " Configure tab labels
+Plug 'Raimondi/delimitMate' " Auto-completion in insert mode
+Plug 'scrooloose/nerdtree' " File system explorer
+Plug 'slim-template/vim-slim' " Slim syntax highlighting
+Plug 'tpope/vim-endwise' " End certain structures automatically
+Plug 'tpope/vim-fugitive' " Git wrapper
+Plug 'tpope/vim-rails' " Editing of Ruby on Rails applications
+Plug 'vim-airline/vim-airline' " Status/tabline
+Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
+Plug 'vim-scripts/toggle_comment' " Toggle comments for one or more lines in both normal and visual mode
+call plug#end()

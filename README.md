@@ -2,4 +2,4 @@
 
 💡 Work in progress
 
-⚠️ Use at your own risk
+⚠️  Use at your own risk
