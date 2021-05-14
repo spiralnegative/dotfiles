@@ -120,8 +120,11 @@ set completefunc=emoji#complete
 
 
 " vim-gitgutter
-let g:gitgutter_signs = 0
-let g:gitgutter_highlight_lines = 1
+highlight SignColumn guibg=black ctermbg=black
+
+highlight GitGutterAdd guifg=green ctermfg=green
+highlight GitGutterChange guifg=yellow ctermfg=yellow
+highlight GitGutterDelete guifg=red ctermfg=red
 
 
 " Custom Functions
