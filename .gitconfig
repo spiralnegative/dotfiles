@@ -1,23 +1,31 @@
 [core]
   editor = vim
   pager = diff-so-fancy | less --tabs=4 -RFX
+  autocrlf = input
 
 [alias]
-  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
-  st = status
-  ci = commit -v
-  ps = push
-  pl = pull
-  df = diff
   a = add
+  ci = commit -v
   ck = checkout
+  df = diff
+  lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an' --abbrev-commit --date=relative
+  lgno = log --name-only
+  pl = pull
+  ps = push
+  psf = push --force-with-lease
+  st = status
+  review = !git stash && git fetch origin $1 && (git branch -m $1 tmp-review-$1-$(date +%Y-%m-%d-%H-%M-%S) || :) && git checkout -b $1 origin/$1 && :
+  nuke-review-tmp = !git branch | grep 'tmp-review' | xargs git branch -D
+  default-branch = ![ -f "$(git rev-parse --show-toplevel 2>/dev/null)/.git/refs/heads/master" ] && echo master || echo main
+  branch-name = !git rev-parse --abbrev-ref HEAD
+  mm = !BRANCH="${1:-$(git branch-name)}" && git checkout $(git default-branch) && git pull origin $(git default-branch) && git checkout "$BRANCH" && git rebase $(git default-branch)
 
   hide = "update-index --assume-unchanged"
   show = "update-index --no-assume-unchanged"
   hidden = "!git ls-files -v | grep '^[a-z]'"
 
-  skip = update-index --skip-worktree
-  noskip = update-index --no-skip-worktree
+  skip = "update-index --skip-worktree"
+  noskip = "update-index --no-skip-worktree"
   skipped = "!git ls-files -v | grep ^S"
 
   ri = "!sh -c \"git rebase -i HEAD~$1\" -"
