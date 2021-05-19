@@ -57,6 +57,7 @@ nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>s :mksession!<CR>
 nnoremap <leader>a :Ag 
 vnoremap <leader>y "+y<CR>
+nnoremap <leader>gb :Gblame<CR>
 
 
 " Mappings
