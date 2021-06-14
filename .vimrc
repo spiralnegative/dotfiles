@@ -28,13 +28,13 @@ set nobackup " no backup files
 set nopaste " use nopaste by default
 set noswapfile " no swap files
 set number " display line numbers on the left
-set pastetoggle=<F3> " toggle between paste and nopaste
+set pastetoggle=<F2> " toggle between paste and nopaste
 set showcmd " show (partial) command in status line
 set showmatch " show matching brackets
 set smartcase " do smart case matching
 set splitbelow " open splits below
 set splitright " open vertical splits on the right
-set tabstop=2 shiftwidth=2 expandtab " use 2 spaces by default
+set tabstop=2 softtabstop=2 shiftwidth=2 expandtab shiftround " use 2 spaces by default
 set wildmenu " command-line completion menu
 set wildmode=longest:list,full " command-line completion mode
 
@@ -51,7 +51,7 @@ vnoremap <Space> zf
 
 " Leader shortcuts
 let mapleader = ','
-vnoremap <Leader>p :set paste<CR>"+]p:set nopaste<CR>
+map <Leader>p :set paste<CR>"*]p:set nopaste<CR>:retab<CR>
 nnoremap <leader>ev :vsp $MYVIMRC<CR>
 nnoremap <leader>ez :vsp ~/.zshrc<CR>
 nnoremap <leader>s :mksession!<CR>
