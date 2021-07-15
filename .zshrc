@@ -1,15 +1,15 @@
 # Path to your oh-my-zsh installation.
-export ZSH=/Users/mdimitrova/.oh-my-zsh
+export ZSH=/Users/<USER>/.oh-my-zsh
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir rvm vcs vi_mode)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9k_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_VCS_STASH_ICON=$'\u2606 '
+ZSH_THEME="powerlevel10k/powerlevel10k"
+POWERLEVEL10K_LEFT_PROMPT_ELEMENTS=(dir rbenv vcs)
+POWERLEVEL10K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
+POWERLEVEL10K_PROMPT_ON_NEWLINE=true
+POWERLEVEL10k_PROMPT_ADD_NEWLINE=true
+POWERLEVEL10K_VCS_STASH_ICON=$'\u2606 '
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
