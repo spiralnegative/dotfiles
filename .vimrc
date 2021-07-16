@@ -80,6 +80,9 @@ augroup configgroup
   autocmd BufWritePost .vimrc source $MYVIMRC " automatically load the .vimrc file whenever it is saved
   autocmd BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim,*.html :%s/\s\+$//e " remove trailing whitespace on save
   autocmd FileType clojure RainbowToggleOn
+  autocmd FileType clojure nnoremap * :set iskeyword-=/<CR>*:set iskeyword+=/<CR>
+  autocmd FileType clojure nnoremap n :set iskeyword-=/<CR>n:set iskeyword+=/<CR>
+  autocmd FileType clojure nnoremap N :set iskeyword-=/<CR>N:set iskeyword+=/<CR>
   autocmd StdinReadPre * let s:std_in=1 " automatically load NERDTree if no files were specified
   autocmd VimEnter * call ShowNerdTree()
   autocmd VimEnter * wincmd p " jump to the main window so NERDTree is not focused by default
@@ -114,7 +117,7 @@ highlight TabLine ctermbg=237
 
 " vim-airline
 let g:airline_powerline_fonts = 1
-let g:airline_theme='atomic'
+let g:airline_theme='zenburn'
 
 
 " vim-emoji
@@ -160,7 +163,6 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter' " Git diff markers
 Plug 'ap/vim-css-color' " Preview colours
 Plug 'carlson-erik/wolfpack' " Colorscheme
-Plug 'edkolev/tmuxline.vim' " Tmux statusline generator
 Plug 'godlygeek/tabular' " Text filtering and alignment
 Plug 'jistr/vim-nerdtree-tabs' " Make NERDTree feel like a true panel, independent of tabs
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Command-line fuzzy finder
@@ -179,4 +181,21 @@ Plug 'tpope/vim-rails' " Editing of Ruby on Rails applications
 Plug 'vim-airline/vim-airline' " Status/tabline
 Plug 'vim-airline/vim-airline-themes' " Themes for vim-airline
 Plug 'vim-scripts/toggle_comment' " Toggle comments for one or more lines in both normal and visual mode
+
+"" Clojure
+"Plug 'guns/vim-sexp', { 'for': 'clojure' }
+"Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+"Plug 'tpope/vim-classpath', { 'for': 'clojure' }
+"Plug 'tpope/vim-salve', { 'for': 'clojure' }
+"Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+
+"" Fireplace
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+"Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+"Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+
+""" Iced
+" Plug 'liquidz/vim-iced', {'for': 'clojure'}
+" Plug 'liquidz/vim-iced-coc-source', {'for': 'clojure'}
+" Plug 'liquidz/vim-iced-kaocha'
 call plug#end()
