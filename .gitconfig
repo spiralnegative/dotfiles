@@ -14,6 +14,7 @@
   ps = push
   psf = push --force-with-lease
   st = status
+  refl = reflog --format='%C(auto)%h %<|(17)%gd %C(blue)%ci%C(reset) %s'
   review = !git stash && git fetch origin $1 && (git branch -m $1 tmp-review-$1-$(date +%Y-%m-%d-%H-%M-%S) || :) && git checkout -b $1 origin/$1 && :
   nuke-review-tmp = !git branch | grep 'tmp-review' | xargs git branch -D
   default-branch = ![ -f "$(git rev-parse --show-toplevel 2>/dev/null)/.git/refs/heads/master" ] && echo master || echo main
