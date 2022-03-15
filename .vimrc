@@ -171,6 +171,7 @@ Plug 'junegunn/vim-emoji' " Display emoji
 Plug 'junegunn/vim-peekaboo' " Display the contents of the registers
 Plug 'kchmck/vim-coffee-script' " CoffeeScript support
 Plug 'luochen1990/rainbow' " Rainbow parentheses
+Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'mkitt/tabline.vim' " Configure tab labels
 Plug 'Raimondi/delimitMate' " Auto-completion in insert mode
 Plug 'scrooloose/nerdtree' " File system explorer
