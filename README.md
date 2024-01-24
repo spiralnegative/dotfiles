@@ -24,6 +24,7 @@ Required for optimal setup
 ### misc
 * [Forest Blue theme for iTerm](https://github.com/olkinn/forest-blue-iTerm)
 * [The Silver Searcher (ag)](https://github.com/ggreer/the_silver_searcher)
+* [fzf](https://github.com/junegunn/fzf)
 * [jump](https://github.com/gsamokovarov/jump)
 
 
