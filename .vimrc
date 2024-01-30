@@ -63,6 +63,7 @@ noremap <Leader>q q
 
 " Mappings
 inoremap <Tab> <C-R>=TabOrComplete()<CR>
+inoremap ><Tab> ><Esc>F<lyt>o</<C-r>"><Esc>O<Space>
 map <F7> :checktime<CR>
 map <C-E> :%s/:\([^:]\+\):/\=emoji#for(submatch(1), submatch(0))/g<CR>
 noremap <c-t> :NERDTreeTabsToggle<CR>
@@ -78,7 +79,7 @@ augroup configgroup
   autocmd BufEnter *.slim set syntax=slim
   autocmd BufReadPost * call JumpToLastPosition()
   autocmd BufWritePost .vimrc source $MYVIMRC " automatically load the .vimrc file whenever it is saved
-  autocmd BufWritePre *.rb,*.scss,*.haml,*.coffee,*.slim,*.html :%s/\s\+$//e " remove trailing whitespace on save
+  autocmd BufWritePre *.rb,*.erb,*.scss,*.haml,*.coffee,*.slim,*.html,*.sql :%s/\s\+$//e " remove trailing whitespace on save
   autocmd FileType clojure RainbowToggleOn
   autocmd FileType clojure nnoremap * :set iskeyword-=/<CR>*:set iskeyword+=/<CR>
   autocmd FileType clojure nnoremap n :set iskeyword-=/<CR>n:set iskeyword+=/<CR>
@@ -96,7 +97,7 @@ let g:fzf_layout = { 'down': '~30%' }
 command! ProjectFiles execute 'Files' s:find_git_root()
 command! -bang -nargs=* Ag
   \ call fzf#vim#grep(
-  \   'ag  --nogroup --column --color --color-line-number "15" --color-match "106" --color-path "1;15" '.shellescape(<q-args>), 1,
+  \   'ag  --nogroup --column --color --color-line-number "15" --color-match "106" --color-path "1;15" --hidden '.shellescape(<q-args>), 1,
   \   <bang>0 ? fzf#vim#with_preview('up:60%')
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
