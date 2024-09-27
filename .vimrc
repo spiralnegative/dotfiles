@@ -74,19 +74,20 @@ noremap <C-a> :Ag! <C-r>=expand('<cword>')<CR><CR>
 
 " AutoGroups
 augroup configgroup
-  autocmd BufEnter *.coffee set syntax=coffee
-  autocmd BufEnter *.py setlocal tabstop=4
-  autocmd BufEnter *.slim set syntax=slim
-  autocmd BufReadPost * call JumpToLastPosition()
-  autocmd BufWritePost .vimrc source $MYVIMRC " automatically load the .vimrc file whenever it is saved
-  autocmd BufWritePre *.rb,*.erb,*.scss,*.haml,*.coffee,*.slim,*.html,*.sql :%s/\s\+$//e " remove trailing whitespace on save
-  autocmd FileType clojure RainbowToggleOn
-  autocmd FileType clojure nnoremap * :set iskeyword-=/<CR>*:set iskeyword+=/<CR>
-  autocmd FileType clojure nnoremap n :set iskeyword-=/<CR>n:set iskeyword+=/<CR>
-  autocmd FileType clojure nnoremap N :set iskeyword-=/<CR>N:set iskeyword+=/<CR>
-  autocmd StdinReadPre * let s:std_in=1 " automatically load NERDTree if no files were specified
-  autocmd VimEnter * call ShowNerdTree()
-  autocmd VimEnter * wincmd p " jump to the main window so NERDTree is not focused by default
+autocmd BufEnter *.coffee set syntax=coffee
+autocmd BufEnter *.py setlocal tabstop=4
+autocmd BufEnter *.slim set syntax=slim
+autocmd BufReadPost * call JumpToLastPosition()
+autocmd BufWritePost .vimrc source $MYVIMRC " automatically load the .vimrc file whenever it is saved
+autocmd BufWritePre *.rb,*.erb,*.scss,*.haml,*.coffee,*.slim,*.html,*.sql :%s/\s\+$//e " remove trailing whitespace on save
+autocmd FileType clojure,html RainbowToggleOn
+autocmd FileType clojure nnoremap * :set iskeyword-=/<CR>*:set iskeyword+=/<CR>
+autocmd FileType clojure nnoremap n :set iskeyword-=/<CR>n:set iskeyword+=/<CR>
+autocmd FileType clojure nnoremap N :set iskeyword-=/<CR>N:set iskeyword+=/<CR>
+autocmd FileType eruby setl filetype=html
+autocmd StdinReadPre * let s:std_in=1 " automatically load NERDTree if no files were specified
+autocmd VimEnter * call ShowNerdTree()
+autocmd VimEnter * wincmd p " jump to the main window so NERDTree is not focused by default
 augroup END
 
 
@@ -127,7 +128,6 @@ set completefunc=emoji#complete
 
 " vim-gitgutter
 highlight SignColumn guibg=black ctermbg=black
-
 highlight GitGutterAdd guifg=green ctermfg=green
 highlight GitGutterChange guifg=yellow ctermfg=yellow
 highlight GitGutterDelete guifg=red ctermfg=red
@@ -193,8 +193,8 @@ Plug 'vim-scripts/toggle_comment' " Toggle comments for one or more lines in bot
 
 "" Fireplace
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-"Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
-"Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
+Plug 'venantius/vim-cljfmt', { 'for': 'clojure' }
+Plug 'venantius/vim-eastwood', { 'for': 'clojure' }
 
 """ Iced
 " Plug 'liquidz/vim-iced', {'for': 'clojure'}
