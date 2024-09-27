@@ -77,6 +77,7 @@ augroup configgroup
 autocmd BufEnter *.coffee set syntax=coffee
 autocmd BufEnter *.py setlocal tabstop=4
 autocmd BufEnter *.slim set syntax=slim
+autocmd BufEnter *.erb set syntax=eruby
 autocmd BufReadPost * call JumpToLastPosition()
 autocmd BufWritePost .vimrc source $MYVIMRC " automatically load the .vimrc file whenever it is saved
 autocmd BufWritePre *.rb,*.erb,*.scss,*.haml,*.coffee,*.slim,*.html,*.sql :%s/\s\+$//e " remove trailing whitespace on save
