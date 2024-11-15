@@ -165,6 +165,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'airblade/vim-gitgutter' " Git diff markers
 Plug 'ap/vim-css-color' " Preview colours
 Plug 'carlson-erik/wolfpack' " Colorscheme
+Plug 'dense-analysis/ale' " Asynchronous Lint Engine
 Plug 'godlygeek/tabular' " Text filtering and alignment
 Plug 'jistr/vim-nerdtree-tabs' " Make NERDTree feel like a true panel, independent of tabs
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Command-line fuzzy finder
