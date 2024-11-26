@@ -7,6 +7,7 @@
   a = add
   ci = commit -v
   ck = checkout
+  ckh = checkout HEAD .
   df = diff
   lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an' --abbrev-commit --date=relative
   lgno = log --name-only
@@ -70,3 +71,6 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+
+[commit]
+  gpgsign = true
