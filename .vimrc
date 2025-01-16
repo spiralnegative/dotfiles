@@ -70,7 +70,8 @@ noremap <c-t> :NERDTreeTabsToggle<CR>
 nnoremap <silent> <C-p> :ProjectFiles<CR>
 nnoremap <F3> :Buffers<CR>
 noremap <C-a> :Ag! <C-r>=expand('<cword>')<CR><CR>
-
+" do not jump to next occurrence when searching
+nmap <silent> * "syiw<Esc>: let @/ = @s<CR>
 
 " AutoGroups
 augroup configgroup
