@@ -52,8 +52,8 @@ vnoremap <Space> zf
 " Leader shortcuts
 let mapleader = ','
 map <Leader>p :set paste<CR>"*]p:set nopaste<CR>:retab<CR>
-nnoremap <leader>ev :vsp $MYVIMRC<CR>
-nnoremap <leader>ez :vsp ~/.zshrc<CR>
+nnoremap <leader>ev :tabnew $MYVIMRC<CR>
+nnoremap <leader>ez :tabnew ~/.zshrc<CR>
 nnoremap <leader>s :mksession!<CR>
 nnoremap <leader>a :Ag 
 vnoremap <leader>y "+y<CR>
@@ -79,6 +79,7 @@ autocmd BufEnter *.coffee set syntax=coffee
 autocmd BufEnter *.py setlocal tabstop=4
 autocmd BufEnter *.slim set syntax=slim
 autocmd BufEnter *.erb set syntax=eruby
+autocmd BufEnter * call SyncTree() " Highlight currently open buffer in NERDTree
 autocmd BufReadPost * call JumpToLastPosition()
 autocmd BufWritePost .vimrc source $MYVIMRC " automatically load the .vimrc file whenever it is saved
 autocmd BufWritePre *.rb,*.erb,*.scss,*.haml,*.coffee,*.slim,*.html,*.sql :%s/\s\+$//e " remove trailing whitespace on save
@@ -89,6 +90,7 @@ autocmd FileType clojure nnoremap N :set iskeyword-=/<CR>N:set iskeyword+=/<CR>
 autocmd FileType eruby setl filetype=html
 autocmd StdinReadPre * let s:std_in=1 " automatically load NERDTree if no files were specified
 autocmd VimEnter * call ShowNerdTree()
+autocmd VimEnter * highlight CursorLine ctermbg=black guibg=black " highlight current line
 autocmd VimEnter * wincmd p " jump to the main window so NERDTree is not focused by default
 augroup END
 
@@ -153,6 +155,20 @@ endfunction
 function! ShowNerdTree() " automatically load NERDTree
   if argc() == 0 && !exists("s:std_in")
     NERDTree
+  endif
+endfunction
+
+" Check if NERDTree is open or active
+function! IsNERDTreeOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" Call NERDTreeFind if NERDTree is active, current window contains a modifiable
+" file, and we're not in vimdiff
+function! SyncTree()
+  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
+    NERDTreeFind
+    wincmd p
   endif
 endfunction
 
