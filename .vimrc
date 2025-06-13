@@ -2,6 +2,7 @@
 syntax on
 filetype indent plugin on
 colorscheme wolfpack
+set notermguicolors " required for NeoVim compatibility
 
 
 " Searching
@@ -28,7 +29,7 @@ set nobackup " no backup files
 set nopaste " use nopaste by default
 set noswapfile " no swap files
 set number " display line numbers on the left
-set pastetoggle=<F2> " toggle between paste and nopaste
+" set pastetoggle=<F2> " toggle between paste and nopaste - not compatoble with NeoVim
 set showcmd " show (partial) command in status line
 set showmatch " show matching brackets
 set smartcase " do smart case matching
