@@ -30,6 +30,7 @@ set nopaste " use nopaste by default
 set noswapfile " no swap files
 set number " display line numbers on the left
 " set pastetoggle=<F2> " toggle between paste and nopaste - not compatoble with NeoVim
+set re=0 " use newer version of the regular expression
 set showcmd " show (partial) command in status line
 set showmatch " show matching brackets
 set smartcase " do smart case matching
@@ -193,6 +194,7 @@ Plug 'junegunn/fzf.vim' " Bundle of fzf-based commands
 Plug 'junegunn/vim-emoji' " Display emoji
 Plug 'junegunn/vim-peekaboo' " Display the contents of the registers
 Plug 'kchmck/vim-coffee-script' " CoffeeScript support
+Plug 'leafgarland/typescript-vim' " TypeScript support
 Plug 'luochen1990/rainbow' " Rainbow parentheses
 Plug 'mhinz/vim-startify' " Fancy start screen
 Plug 'mkitt/tabline.vim' " Configure tab labels

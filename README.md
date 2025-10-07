@@ -9,6 +9,7 @@ Required for optimal setup
 
 ### git
 * [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+* [scmpuff](https://github.com/mroth/scmpuff)
 
 ### tmux
 * [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
