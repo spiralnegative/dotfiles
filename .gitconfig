@@ -8,20 +8,16 @@
   ci = commit -v
   ck = checkout
   ckh = ! "[ $# -eq 0 ] && git checkout HEAD . || git checkout HEAD \"$@\""
-
   df = diff
+  fx = commit --fixup HEAD
   lg = log --graph --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset %C(cyan)%an' --abbrev-commit --date=relative
   lgno = log --name-only
   pl = pull
   ps = push
   psf = push --force-with-lease
-  st = status
   refl = reflog --format='%C(auto)%h %<|(17)%gd %C(blue)%ci%C(reset) %s'
   review = !git stash && git fetch origin $1 && (git branch -m $1 tmp-review-$1-$(date +%Y-%m-%d-%H-%M-%S) || :) && git checkout -b $1 origin/$1 && :
-  nuke-review-tmp = !git branch | grep 'tmp-review' | xargs git branch -D
-  default-branch = ![ -f "$(git rev-parse --show-toplevel 2>/dev/null)/.git/refs/heads/master" ] && echo master || echo main
-  branch-name = !git rev-parse --abbrev-ref HEAD
-  mm = !BRANCH="${1:-$(git branch-name)}" && git checkout $(git default-branch) && git pull origin $(git default-branch) && git checkout "$BRANCH" && git rebase $(git default-branch)
+  st = status
 
   hide = "update-index --assume-unchanged"
   show = "update-index --no-assume-unchanged"
@@ -48,7 +44,7 @@
   enabled = 1
 
 [merge]
-  ff = only
+  ff = no
 
 [filter "lfs"]
   smudge = git-lfs smudge -- %f
